@@ -1,0 +1,22 @@
+##写入数据到Excel表单中
+import xlsxwriter
+#创建文件并添加一个表单
+wookbook=xlsxwriter.Wookbook("demo.xlsx")
+wooksheet=wookbook.add_wooksheet()
+#在指定位置写入属性
+wooksheet.write("A1","111111111")
+wooksheet.write("A2","222222222")
+#文件关闭，记得要关闭文件，不然文件找不到
+wookbook.close()
+
+##写入数据到mysql数据库中
+import pymysql
+db=pymysql.Connect(host="localhost",port=3306,user="test",passwd="123321",db="spider",charset="utf8")
+cursor=db.cursor()
+sql="insert into tel(name,phone) values('单位','000')"
+cursor.execute(sql)
+db.commit()#提交数据
+db.close()#关闭数据文件
+
+
+
